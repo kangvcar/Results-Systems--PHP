@@ -23,22 +23,70 @@
 						</li>
 					</ul>
 				</div>
-				
 			</nav>
-			<h1 align="center">
-				添加成绩条目
-			</h1>
-			<form action="tjcjdo.php" method="post" class="form-horizontal" role="form">
+<!--	----------------------以上是导航栏------------------------------------   -->
+			<h1 align="center">添加成绩</h1>
+			
+<!--	----------------------按班级科目批量添加成绩------------------------------------   -->		
+			<hr>	
+			<h2 align="left">按班级科目批量添加成绩</h2>
+			<form action="tjcjdoa.php" method="post" class="form-horizontal" role="form">
 				<div class="form-group">
-					 <label for="inputEmail3" class="col-sm-5 control-label">学号</label>
+					 <label for="inputPassword3" class="col-sm-5 control-label">班级</label>
 					<div class="col-sm-3">
-						<input type="text" name="tjxh" class="form-control" id="inputEmail3" />
+						<select class="input-lg form-control" name="tjbja">
+							<?php
+								include('conn.php');
+								$sqlkm = "select distinct banji from student;";	//查询班级语句
+								$relkm = mysql_query($sqlkm);	//查询班级结果
+								while($r = mysql_fetch_array($relkm)){
+									echo "<option value=".$r[0].">".$r[0]."</option>";
+								}
+								mysql_close($conn);
+							?>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
-					 <label for="inputEmail3" class="col-sm-5 control-label">姓名</label>
+					 <label for="inputPassword3" class="col-sm-5 control-label">科目名称</label>
 					<div class="col-sm-3">
-						<input type="text" name="tjxm" class="form-control" id="inputEmail3" />
+						<select class="input-lg form-control" name="tjkmida">
+							<?php
+								include('conn.php');
+								$sqlkm = "select distinct kmmc,kmid from kemu;";	//查询科目语句
+								$relkm = mysql_query($sqlkm);	//查询科目结果
+								while($r = mysql_fetch_array($relkm)){
+									echo "<option value=".$r[1].">".$r[0]."</option>";
+								}
+								mysql_close($conn);
+							?>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-5 col-sm-5">
+						 <input type="submit" name="tj" class="btn btn-info" value="添加成绩">
+					</div>
+				</div>
+			</form>
+<!--	----------------------按单个学号科目添加成绩------------------------------------   -->	
+			<br><br><hr>					
+			<h2 align="left">按单个学号科目添加成绩</h2>
+			<form action="tjcjdo.php" method="post" class="form-horizontal" role="form">
+				<div class="form-group">
+					 <label for="inputPassword3" class="col-sm-5 control-label">学号</label>
+					<div class="col-sm-3">
+						<select class="input-lg form-control" name="tjxh">
+							<?php
+								include('conn.php');
+								$sqlkm = "select distinct xuehao from student;";	//查询学号语句
+								$relkm = mysql_query($sqlkm);	//查询学号结果
+								while($r = mysql_fetch_array($relkm)){
+									echo "<option value=".$r[0].">".$r[0]."</option>";
+								}
+								mysql_close($conn);
+							?>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">

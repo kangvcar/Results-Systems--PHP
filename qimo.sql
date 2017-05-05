@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-05-05 04:06:00
+-- Generation Time: 2017-05-05 09:26:37
 -- 服务器版本： 5.7.14
 -- PHP Version: 5.6.25
 
@@ -37,8 +37,9 @@ CREATE TABLE `cj` (
 --
 
 INSERT INTO `cj` (`xuehao`, `kmid`, `cj`) VALUES
-(1, 1, '1'),
-(1, 2, '2');
+(1, 1, '22'),
+(7, 1, '11'),
+(15, 1, '44');
 
 -- --------------------------------------------------------
 
@@ -69,7 +70,7 @@ CREATE TABLE `student` (
   `xuehao` int(20) NOT NULL,
   `name` varchar(20) DEFAULT NULL,
   `xingbie` varchar(20) DEFAULT NULL,
-  `banji` varchar(20) DEFAULT NULL
+  `banji` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -77,7 +78,11 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`xuehao`, `name`, `xingbie`, `banji`) VALUES
-(1, '1', NULL, NULL);
+(1, '张三', NULL, '1501'),
+(2, '李四', NULL, '1502'),
+(3, '王五', NULL, '1503'),
+(7, '李明', NULL, '1501'),
+(15, '金亮', NULL, '1501');
 
 -- --------------------------------------------------------
 
